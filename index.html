@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calendar</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
+    integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
+    crossorigin="anonymous"></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+
+<body>
+
+  <div class="container">
+    <div class="header">
+      <p>Calendar</p>
+      <div><button id="authorize_button" >Login with Google</button></div>
+      <div><button id="signout_button">Sign Out</button></div>
+    </div>
+    <div class="content">
+      <div>
+        <h1>Analyzing events for: <span id="email"></span></h1>
+        <h3> You have spent <span id="hours"> 0 </span> hours on meetings this week</h3>
+        <label>
+          Get stats for past <input id="days" type="number" > days.
+          <button id="submit">Go</button>
+        </label>
+        
+       
+        <pre id="events"></pre>
+      </div>
+      <pre id="content" style="white-space: pre-wrap;"></pre>
+    </div>
+    <div class="footer">
+      <div>Works only with Google Calendar</div>
+      <a href="#">Sanketh.dev</a>
+    </div>
+  </div>
+
+  <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+     <script src="gcal.js"></script>
+     <script>
+       document.getElementById("submit").onclick = () => { listUpcomingEvents(); }
+       
+     </script>
+</body>
+
+</html>
